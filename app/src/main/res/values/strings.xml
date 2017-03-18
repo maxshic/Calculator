@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="number1">数字1</string>
+    <string name="number2">数字2</string>
+    <string name="operator">运算符</string>
+    <string name="calculate">计算</string>
+    <string name="result">结果</string>
+</resources>
