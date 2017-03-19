@@ -1,7 +1,6 @@
 package com.teng520.calculator;
 
 import android.support.v7.app.AppCompatActivity;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,14 +10,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     private EditText editText1;
     private EditText editText2;
     private Spinner spinner;
     private Button button;
     private TextView textView;
     private String str;
-    private String[] opera=getResources().getStringArray(R.array.operator);
+    private String[] opera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +27,7 @@ public class MainActivity extends Activity {
         spinner=(Spinner)findViewById(R.id.spinner);
         button=(Button)findViewById(R.id.button);
         textView=(TextView)findViewById(R.id.result);
+        opera=getResources().getStringArray(R.array.operator);
         ArrayAdapter<String> adapter=new ArrayAdapter(this,android.R.layout.simple_spinner_item,opera);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
