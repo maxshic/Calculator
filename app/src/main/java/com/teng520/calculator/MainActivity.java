@@ -1,5 +1,7 @@
 package com.teng520.calculator;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,11 +60,30 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText(Float.toString(num1*num2));
                         break;
                     case "/":
+                        if(num2==0){
+                            warning();
+                        }else
                         textView.setText(Float.toString(num1/num2));
                         break;
                     default:
                         break;
                 }
+            }
+        });
+    }
+    public void warning(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this)
+                .setTitle("警告！")
+                .setMessage("请输入非零数!");
+                setPositiveButton(builder)
+                        .create()
+                        .show();
+    }
+    public AlertDialog.Builder setPositiveButton(AlertDialog.Builder builder){
+        return builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
             }
         });
     }

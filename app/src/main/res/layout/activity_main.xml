@@ -18,6 +18,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/input1"/>
     <Spinner
         android:layout_width="wrap_content"
@@ -31,6 +32,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/input2"/>
 
     <Button
