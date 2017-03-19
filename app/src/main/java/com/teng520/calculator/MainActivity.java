@@ -47,26 +47,31 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float num1=Float.valueOf(editText1.getText().toString());
-                float num2=Float.valueOf(editText2.getText().toString());
-                switch (str){
-                    case "+":
-                        textView.setText(Float.toString(num1+num2));
+                if (editText1.getText().toString() == null || editText2.getText().toString() == null
+                        || editText1.getText().toString().equals("") || editText2.getText().toString().equals("")) {
+                    warning();
+                }else{
+                    float num1 = Float.valueOf(editText1.getText().toString());
+                    float num2 = Float.valueOf(editText2.getText().toString());
+                    switch (str) {
+                        case "+":
+                            textView.setText(Float.toString(num1 + num2));
+                            break;
+                        case "-":
+                            textView.setText(Float.toString(num1 - num2));
+                            break;
+                        case "*":
+                            textView.setText(Float.toString(num1 * num2));
+                            break;
+                        case "/":
+                            if (num2 == 0) {
+                                warning();
+                            } else
+                                textView.setText(Float.toString(num1 / num2));
+                            break;
+                        default:
                         break;
-                    case "-":
-                        textView.setText(Float.toString(num1-num2));
-                        break;
-                    case "*":
-                        textView.setText(Float.toString(num1*num2));
-                        break;
-                    case "/":
-                        if(num2==0){
-                            warning();
-                        }else
-                        textView.setText(Float.toString(num1/num2));
-                        break;
-                    default:
-                        break;
+                    }
                 }
             }
         });
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     public void warning(){
         AlertDialog.Builder builder=new AlertDialog.Builder(this)
                 .setTitle("警告！")
-                .setMessage("请输入非零数!");
+                .setMessage("请输入有效数字!");
                 setPositiveButton(builder)
                         .create()
                         .show();
